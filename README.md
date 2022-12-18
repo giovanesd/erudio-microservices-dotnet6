@@ -1,1 +1,1 @@
-# erudio-microservices-dotnet6
+# pandex-microservices-dotnet6
