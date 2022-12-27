@@ -21,12 +21,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="Swashbuckle.AspNetCore.SwaggerUI" />
-    <None Remove="Swashbuckle.AspNetCore.Annotations" />
-    <None Remove="AutoMapper" />
-    <None Remove="AutoMapper.Extensions.Microsoft.DependencyInjection" />
-    <None Remove="Microsoft.AspNetCore.Authentication.JwtBearer" />
-    <None Remove="Microsoft.EntityFrameworkCore.Tools" />
-    <None Remove="Pomelo.EntityFrameworkCore.MySql" />
+    <None Remove="Model\Context\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Model\Context\" />
   </ItemGroup>
 </Project>
