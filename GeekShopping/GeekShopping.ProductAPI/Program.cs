@@ -6,10 +6,12 @@ var connection = builder.Configuration["DBConnection:DBConnectionString"];
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers(); 
 
 builder.Services.AddDbContext<MySQLContext>(options => options.UseMySql( connection,
-    new MySqlServerVersion(new Version(8, 0, 31))));
+    new MySqlServerVersion(new Version(Int32.Parse(builder.Configuration["DBConnection:DBMajorVersion"]),
+        Int32.Parse(builder.Configuration["DBConnection:DBMinorVersion"]),
+        Int32.Parse(builder.Configuration["DBConnection:DBPatchVersion"])))));
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
