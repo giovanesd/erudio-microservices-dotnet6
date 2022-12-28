@@ -22,8 +22,16 @@
 
   <ItemGroup>
     <None Remove="Model\Context\" />
+    <None Remove="Repository\" />
+    <None Remove="Data\" />
+    <None Remove="Data\ValueObjects\" />
+    <None Remove="Config\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\Context\" />
+    <Folder Include="Repository\" />
+    <Folder Include="Data\" />
+    <Folder Include="Data\ValueObjects\" />
+    <Folder Include="Config\" />
   </ItemGroup>
 </Project>
