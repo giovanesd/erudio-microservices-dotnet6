@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using GeekShopping.ProductAPI.Data.ValueObjects;
 using GeekShopping.ProductAPI.Repository;
@@ -33,6 +34,29 @@ namespace GeekShopping.ProductAPI.Controllers
             var product = await _repository.FindById(id);
             if (product == null) return NotFound();
             return Ok(product);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult<ProductVO>> Create(ProductVO vo)
+        {
+            if (vo == null) return BadRequest();
+            ProductVO product = await _repository.Create(vo);
+            return Ok(product);
+        }
+
+        [HttpPut]
+        public async Task<ActionResult<ProductVO>> Update(ProductVO vo)
+        {
+            if (vo == null) return BadRequest();
+            ProductVO product = await _repository.Update(vo);
+            return Ok(product);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> Delete(long id)
+        {
+            bool status = await _repository.Delete(id);
+            return !status ? BadRequest() : Ok(status);
         }
     }
 }
