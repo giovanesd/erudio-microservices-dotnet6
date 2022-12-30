@@ -26,6 +26,7 @@
     <None Remove="Data\" />
     <None Remove="Data\ValueObjects\" />
     <None Remove="Config\" />
+    <None Remove="Controllers\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\Context\" />
@@ -33,5 +34,9 @@
     <Folder Include="Data\" />
     <Folder Include="Data\ValueObjects\" />
     <Folder Include="Config\" />
+    <Folder Include="Controllers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="WeatherForecast.cs" />
   </ItemGroup>
 </Project>

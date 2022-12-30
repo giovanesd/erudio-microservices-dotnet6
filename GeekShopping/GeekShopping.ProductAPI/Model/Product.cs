@@ -20,7 +20,7 @@ namespace GeekShopping.ProductAPI.Model
 
 		[Column("description")]
 		[StringLength(500)]
-		public string Descripion { get; set; }
+		public string Description { get; set; }
 
 		[Column("category_name")]
 		[StringLength(50)]
