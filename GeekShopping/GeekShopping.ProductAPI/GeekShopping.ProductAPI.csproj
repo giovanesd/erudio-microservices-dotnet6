@@ -39,4 +39,7 @@
   <ItemGroup>
     <Compile Remove="WeatherForecast.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\.editorconfig" />
+  </ItemGroup>
 </Project>
