@@ -1,0 +1,13 @@
+﻿@model  GeekShopping.Web.Models.ProductModel
+
+<br/>
+<br/>
+<div class="container p-4 border">
+    ID: @Model.Id <br/>
+    Name: @Model.Name<br/>
+    Category: @Model.CategoryName<br/>
+    Price: @((Model.Price).ToString("c"))<br/>
+    Description: @Model.Description<br/>
+    @Model.ImageURL
+
+</div>

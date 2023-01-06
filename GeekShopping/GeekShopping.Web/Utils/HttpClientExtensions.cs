@@ -27,7 +27,7 @@ namespace GeekShopping.Web.Utils
             var dataAsString = JsonSerializer.Serialize(data);
             var content = new StringContent(dataAsString);
             content.Headers.ContentType = contentType;
-            return httpClient.PostAsJson(url, content);
+            return httpClient.PostAsync(url, content);
         }
 
         public static Task<HttpResponseMessage> PutAsJson<T>(this HttpClient httpClient,
@@ -37,7 +37,7 @@ namespace GeekShopping.Web.Utils
             var dataAsString = JsonSerializer.Serialize(data);
             var content = new StringContent(dataAsString);
             content.Headers.ContentType = contentType;
-            return httpClient.PutAsJson(url, content);
+            return httpClient.PutAsync(url, content);
         }
     }
 }
