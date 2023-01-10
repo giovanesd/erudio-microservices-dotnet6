@@ -44,6 +44,25 @@ namespace GeekShopping.Web.Controllers
             return View(productModel);
         }
 
+        public async Task<IActionResult> ProductUpdate(long id)
+        {
+            var product = await _productService.FindProductById(id);
+            if (product == null) return NotFound();
+            return View(product);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ProductUpdate(ProductModel productModel)
+        {
+            if (ModelState.IsValid)
+            {
+                var product = await _productService.UpdateProduct(productModel);
+                if (product == null) return View(productModel);
+                return RedirectToAction(nameof(ProductIndex));
+            }
+            return View(productModel);
+        }
+
         public async Task<IActionResult> ProductEdit(long id)
         {
             var product = await _productService.FindProductById(id);
@@ -52,8 +71,16 @@ namespace GeekShopping.Web.Controllers
 
         public async Task<IActionResult> ProductDelete(long id)
         {
-            bool success = await _productService.DeleteProductById(id);
-            return View(success);
+            var product = await _productService.FindProductById(id);
+            return View(product);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ProductDelete(ProductModel productModel)
+        {
+            var response = await _productService.DeleteProductById(productModel.Id);
+            if (response) return RedirectToAction(nameof(ProductIndex));
+            return View(productModel);
         }
     }
 }
